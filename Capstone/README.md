@@ -1,7 +1,7 @@
 Capstone
 ==============================
 
-M: Music Rec Engine
+M: Account Delenquency Detection
 
 Project Organization
 ------------
