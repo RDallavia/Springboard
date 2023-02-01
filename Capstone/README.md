@@ -1,8 +1,9 @@
-For credit card issuers, credit card delinquencies can lead to billions of dollars in losses each year. Delinquent balances that are “charged off” make offering competitive interest rates and other incentives to prospective and current borrowers challenging.  This begs the question: Is there a way to predict delinquencies before they happen and prevent charge-offs?  In the following pages, we endeavor to predict credit card delinquencies using data supplied by American Express. 10,000 observations and over 150 features were included in our data set. After reviewing several choices, we selected the light gradient boosting machine as the preferred supervised classification methodology to successfully predict credit card delinquency. Computational constraints and sample size were limiting factors, however, we believe our study provides a sound foundation for further research.
+## For credit card issuers, credit card delinquencies can lead to billions of dollars in losses each year. Delinquent balances that are “charged off” make offering competitive interest rates and other incentives to prospective and current borrowers challenging.  This begs the question: Is there a way to predict delinquencies before they happen and prevent charge-offs?  In the following pages, we endeavor to predict credit card delinquencies using data supplied by American Express. 10,000 observations and over 150 features were included in our data set. After reviewing several choices, we selected the light gradient boosting machine as the preferred supervised classification methodology to successfully predict credit card delinquency. Computational constraints and sample size were limiting factors, however, we believe our study provides a sound foundation for further research.
+
 Capstone
 ==============================
 
-M: Account Delenquency Detection
+
 
 Project Organization
 ------------
