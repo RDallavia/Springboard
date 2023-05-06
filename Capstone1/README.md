@@ -1,5 +1,5 @@
 # Ticket Pricing at Big Mountain Resort
-![](/Users/rcd/Desktop/Springboard/Capstone1/images1/overlook.jpeg)
+![](images1/overlook.jpeg)
 ***(Source: Stanley.Com; Hotel used as The Overlook in "The Shining")***
 # Summary
 * The following analysis is the data wrangling/cleaning step in answering the question: What is the optimal ticket price might be for Big Mountain. 
