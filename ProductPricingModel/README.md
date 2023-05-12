@@ -69,3 +69,21 @@ We looked at resorts per 100k people and 100 square miles. Due to outliers and t
 Many states had between 8 and 11 resorts per 100k people, though a non-trivial number had between 1 and 4. Vermont, Wyoming, New Hampshire, and Montana ranked first through fourth, respectively, regarding resorts per 100k.  
 
 When looking at resorts per 100k square miles, most states have between 3 and 9 resorts. New Hampshire dominated the ranking, while Montana failed to make our top 10.
+
+We performed Principal Component Analysis (PCA) on our data. The first two composite features accounted for over 75% of the data's variance, and the first four components accounted for over 95%. Plotting the first two principal components against one another revealed no particular pattern with respect to price or any other variable. Our PCA did suggest `resorts_per_100kcapita` and `resorts_per_100ksq_mile` had an outsized influence on the data and may explain why states like Vermont and New Hampshire were outliers.  
+
+A simple bar chart of average weekend prices indicated resorts either tended to cluster between $40 to $60 and around $80.
+
+We engineered resort level features to augment our design matrix. The features were as follows:
+* ratio of resort skiable area to total state skiable area
+* ratio of resort days open to total state days open
+* ratio of resort terrain park count to total state terrain park count
+* ratio of resort night skiing area to total state night skiing area
+
+A heatmap revealed AdultWeekend ticket price, we see quite a few reasonable correlations. `fastQuads` stood out, along with `Runs` and `Snow Making_ac`. Visitors seem to value more "guaranteed" snow, which would drive up resort costs and ticket prices. Of the new features,`resort_night_skiing_state_ratio` seemed the most correlated with ticket price. If this is true, then perhaps seizing a greater share of night skiing capacity means the resort can charge more, as it should.  Runs and total_chairs were also well correlated with ticket price, and `vertical_drop seems` to be a selling point that raised ticket prices as well.
+
+# Model Preprocessing and Training
+
+
+
+
