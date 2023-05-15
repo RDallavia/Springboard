@@ -83,6 +83,37 @@ We engineered resort level features to augment our design matrix. The features w
 A heatmap revealed AdultWeekend ticket price, we see quite a few reasonable correlations. `fastQuads` stood out, along with `Runs` and `Snow Making_ac`. Visitors seem to value more "guaranteed" snow, which would drive up resort costs and ticket prices. Of the new features,`resort_night_skiing_state_ratio` seemed the most correlated with ticket price. If this is true, then perhaps seizing a greater share of night skiing capacity means the resort can charge more, as it should.  Runs and total_chairs were also well correlated with ticket price, and `vertical_drop seems` to be a selling point that raised ticket prices as well.
 
 # Model Preprocessing and Training
+We entered the 4th stage of our process with a design matrix of 277 rows and 25 columns, after having removed rows pertaining to our client's resort. We performed a standard 70%/30% train/test split on the data set and withheld the `AdultWeekend` column as the target. 
+
+We separated out the columns `Name`, `state`, and `Region`, which left us with only numeric data in our design and testing matricies. 
+
+The grand mean was approximately 63.84. This is the mean of the target variable and our baseline predictor. If our model cannot out perform this, then there is little use in relying on our model.
+
+A commonplace metric for the extent to which a model outperforms the baseline prediction is $R^{2}$. As we observed, the $R^{2}$ for a model no better than the baseline is 0, while a perfect model will yield an $R^{2}$ of 1. Mean squared error and mean absolute error were also explored.
+
+We experiemented with filling missing values with column medians and used the standard scaler to put all data on equal footing. We fit a linear model to the data and discovered our test set results were better than our baseline (~73 versus ~63). The mean absolute error indicates we'd be within ~9.00 of the actual ticket price using our model.
+
+We repeated the above steps using means to fill in missing feature values. The results were largely the same as when we used the median.
+
+We defined a pipeline to capture our process in the following way:
+```Python
+pipe = make_pipeline(
+    SimpleImputer(strategy='median'), 
+    StandardScaler(), 
+    LinearRegression()
+)
+```
+After fitting and predicting using our pipeline like so, 
+```Python
+pipe.fit(X_train, y_train)
+y_tr_pred = pipe.predict(X_train)
+y_te_pred = pipe.predict(X_test)
+```
+it became clear that our pipeline was working as expected, producing mean absolute error we had seen before. Trying to improve the model by selecting the k best predictors where k=10 and k=15 did not improve our predictive ability. We ultimately switched to a random forest model and turned to 5-fold, Grid search cross validation. The results indicated our random forest model would be within approximately $1 of the actual price -- a significant improvement over our linear model. Thus, we chose it as the model with which we'll go forward. Interestingly, our random forest model agreed with our linear model insofar as it identified the following as the most important features:
+* fastQuads
+* Runs
+* Snow Making_ac
+* vertical_drop 
 
 
 
